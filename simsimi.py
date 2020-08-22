@@ -15,14 +15,17 @@ while True:
 	else:
 		headers = {
 		    'Content-Type': 'application/json',
-		    'x-api-key': 'YOUR-API-KEY-HERE',#W~Xh87uruJ-BzPLKl~lDJG1iqjG0J0eQ74qxxxx_
+		    'x-api-key': 'YOUR-API-KEY-HERE',#jN-ZdauVXlHP9iUQB2bn8~Z~NIQQoNQqL5QTxxxx
 		}
 		data = '{\n            "utext": "'+b+'", \n            "lang": "id" \n     }'
 		response = requests.post('https://wsapi.simsimi.com/190410/talk', headers=	headers	, data=data)	
-		a=response.json()	
-		if a['status'] ==	 200:	
-			print('$ simi: '+a['atext'])	
+		a=response.json()
+		if 'status' in a:
+			if a['status'] == 200:
+				print('$ simi: '+a['atext'])
+			else:
+				print('error '+a['statusMessage'])
 		else:
-			print('maaf simsimi, sedang tidur. error '+a['statusMessage'])
+			print(a['message'])
 	b = raw_input('# kamu: ')
 	
