@@ -8,7 +8,7 @@ os.system('cls' if os.name=='nt' else 'clear')
 print("Simple SimSimi CLI Python\nby. rhxx\n")
 print('='*40)
 print('type "end" u/ close\n')
-b = raw_input('kamu: ' )
+b = raw_input('# kamu: ' )
 while True:
 	if b == 'end':
 		exit()
@@ -21,8 +21,8 @@ while True:
 		response = requests.post('https://wsapi.simsimi.com/190410/talk', headers=	headers	, data=data)	
 		a=response.json()	
 		if a['status'] ==	 200:	
-			print('simi: '+a['atext'])	
+			print('$ simi: '+a['atext'])	
 		else:
 			print('maaf simsimi, sedang tidur. error '+a['statusMessage'])
-	b = raw_input('kamu: ')
+	b = raw_input('# kamu: ')
 	
